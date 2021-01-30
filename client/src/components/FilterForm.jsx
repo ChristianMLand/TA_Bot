@@ -1,6 +1,5 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import axios from 'axios';
-import "../views/main.css";
 export default ({type}) => {
     const [filter,setFilter] = useState("a");
     const [allUsers,setAllUsers] = useState([]);
@@ -15,7 +14,7 @@ export default ({type}) => {
     return (
         <div className="form">
             <div className="form-group" >
-                <label htmlFor="filter-role">Find by role:</label>
+                <label htmlFor="filter-role">Find by {type}:</label>
                 <input onChange={e => setFilter(e.target.value)} value={filter} type="text" id="filter-role"/>
             </div>
             <button onClick={() => getUsers(type)}>Get Users</button>

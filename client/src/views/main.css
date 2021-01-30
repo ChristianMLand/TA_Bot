@@ -4,7 +4,7 @@
     color: white;
 }
 body{
-    background: linear-gradient(#4d9dff,  #070053);
+    background: rgb(31, 31, 44);
     background-repeat: no-repeat;
     background-position:center;
     background-size:contain;
@@ -16,7 +16,7 @@ body{
     margin-top: 5vh;
     width: 400px;
     min-height: 80px;
-    background-color: #1000c166;
+    background-color: #36385184;
     border-radius: 10px;
     backdrop-filter: blur(3px);
     padding: 30px;
@@ -35,10 +35,11 @@ input{
     box-shadow:  0 0 0 3px #00000015;
     border-radius: 5px;
     color: black;
+    background-color: white;
 }
 button{
     margin: auto;
-    background:  rgb(17, 0, 115,0.6);
+    background:  rgba(226, 40, 118, 0.6);
     border: none;
     padding: 7px 15px;
     border-radius: 5px;
