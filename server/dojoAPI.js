@@ -1,7 +1,7 @@
 const {Client,Intents} = require('discord.js');
 const express = require('express');
 const cors = require('cors');
-const {prefix,token,me,server} = require('./config.json');
+const {prefix,token,me,server} = require('./config/config.json');
 const port = 5000;
 
 const app = express();
@@ -27,14 +27,9 @@ app.get('/allUsers', async (req,res) => {
 
 app.get('/filterRoles/:filter', async (req,res) => {
     const role = await guild.roles.cache.find(r => r.name == req.params.filter);
-    // console.log(role);
-    const tst = await guild.members.cache.filter(m => m.roles.fetch(r => r.id === role.id));
-    console.log(tst)
-    for(let x of tst){
-        console.log(`test${x}`);
-    }
-    console.log("test");
-    //res.send({"members":role})
+    const members = await guild.members.fetch();
+    const names = await members.filter(m => m._roles.includes(role.id));
+    res.send({"members":names})
 })
 
 app.get('/filterNames/:filter', async (req,res) => {
@@ -43,7 +38,7 @@ app.get('/filterNames/:filter', async (req,res) => {
 })
 
 client.once('ready', async () => {
-    guild = await client.guilds.fetch(server.id2);
+    guild = await client.guilds.fetch(server.id3);
     console.log('Ready!');
 });
 
