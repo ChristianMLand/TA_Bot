@@ -22,7 +22,7 @@ export default () => {
             console.log(resp.data.members);
         })
         .catch(err => console.log(err));
-    }
+    }//TODO make form component
     return (
         <div>
             <div className="form">
