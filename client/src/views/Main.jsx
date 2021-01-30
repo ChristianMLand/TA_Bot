@@ -1,7 +1,8 @@
 import React,{useState,useEffect} from 'react';
 // import {Router} from '@reach/router';
 import axios from 'axios';
-import "./main.css";
+// import "./main.css";
+import FilterForm from '../components/FilterForm';
 export default () => {
     const [user,setUser] = useState("");
     const [role,setRole] = useState("");
@@ -22,7 +23,7 @@ export default () => {
             console.log(resp.data.members);
         })
         .catch(err => console.log(err));
-    }//TODO make form component
+    }
     return (
         <div>
             <div className="form">
@@ -36,26 +37,8 @@ export default () => {
                 </div>
                 <button onClick={() => sendForm()}>Submit</button>
             </div>
-            <div className="form">
-                <div className="form-group" >
-                    <label htmlFor="filter-role">Find by role:</label>
-                    <input onChange={e => setFilter(e.target.value)} value={filter} type="text" id="filter-role"/>
-                </div>
-                <button onClick={() => getUsers("Role")}>Get Users</button>
-                <ul>
-                    {allUsers && allUsers.map((u,i) => <li key={i}>{u.displayName}</li>)}
-                </ul>
-            </div>
-            <div className="form">
-                <div className="form-group" >
-                    <label htmlFor="filter-name">Find by name:</label>
-                    <input onChange={e => setFilter(e.target.value)} value={filter} type="text" id="filter-name"/>
-                </div>
-                <button onClick={() => getUsers("Name")}>Get Users</button>
-                <ul>
-                    {allUsers && allUsers.map((u,i) => <li key={i}>{u.displayName}</li>)}
-                </ul>
-            </div>
+            <FilterForm type="role"/>
+            <FilterForm type="name"/>
         </div>
     );
 }

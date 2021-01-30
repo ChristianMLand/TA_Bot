@@ -28,7 +28,7 @@ app.get('/allUsers', async (req,res) => {
 app.get('/filterRoles/:filter', async (req,res) => {
     const role = await guild.roles.cache.find(r => r.name == req.params.filter);
     const members = await guild.members.fetch();
-    const names = await members.filter(m => m._roles.includes(role.id));
+    const names = members.filter(m => m._roles.includes(role.id));
     res.send({"members":names})
 })
 
