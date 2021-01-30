@@ -1,0 +1,24 @@
+{
+  "name": "TAbot",
+  "version": "1.0.0",
+  "description": "bot for TAs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "canvas": "^2.6.1",
+    "cors": "^2.8.5",
+    "discord.js": "^12.5.1",
+    "express": "^4.17.1",
+    "jsdom": "^16.4.0",
+    "mongoose": "^5.11.13",
+    "pm2": "^4.4.1",
+    "qs": "^6.9.4",
+    "ws": "^7.4.2"
+  }
+}
